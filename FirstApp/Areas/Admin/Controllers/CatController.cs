@@ -22,11 +22,7 @@ namespace FirstApp.Controllers
              VM.categories= _unitofwork.Category.GetAll();//_Context.Categories;
             return View(VM);
         }
-        //[HttpGet]
-        //public IActionResult Create()
-        //{
-        //    return View();
-        //}
+        
         //[HttpPost]
         //[ValidateAntiForgeryToken]
         //public IActionResult Create(Category category)
