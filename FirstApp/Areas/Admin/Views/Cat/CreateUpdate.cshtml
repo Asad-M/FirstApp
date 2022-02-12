@@ -9,6 +9,7 @@
             <h2 class="text-primary">@((Model.category==null||Model.category.Id==0)?"Create":"Update") Category</h2>
         </div>
         <div class="row mb-3">
+            <input  type="hidden" asp-for="category.Id">
             <label asp-for="category.Name"></label>
             <input asp-for="category.Name" class="form-control"/>
             <span asp-validation-for="category.Name" class="text-danger"></span>
@@ -24,6 +25,7 @@
         }
         else
         {
+            
             <button class="btn btn-primary" type="submit">Update</button>
         }
 

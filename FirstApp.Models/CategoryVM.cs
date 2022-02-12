@@ -8,7 +8,7 @@ namespace FirstApp.Models
 {
     public class CategoryVM
     {
-        public Category category { get; set; }
-        public IEnumerable<Category> categories { get; set; }
+        public Category category { get; set; }=new Category();
+        public IEnumerable<Category> categories { get; set; } = new List<Category>();
     }
 }

@@ -14,6 +14,16 @@
     <script>
     toastr.success('@TempData["success"]')
     
+}
+    
+    </script>
+}
+@if(TempData["update"]!=null)
+{
+    
+    <script>
+    toastr.success('@TempData["update"]')
+    
     </script>
 }
 @if(TempData["error"]!=null)

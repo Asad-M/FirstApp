@@ -8,7 +8,7 @@ namespace FirstApp.Controllers
     public class CatController : Controller
     {
         private IUnitOfWork _unitofwork;
-            
+
 
         public CatController(IUnitOfWork unitofwork)
         {
@@ -17,12 +17,12 @@ namespace FirstApp.Controllers
 
         public IActionResult Index()
         {
-            CategoryVM VM=new CategoryVM();
+            CategoryVM VM = new CategoryVM();
 
-             VM.categories= _unitofwork.Category.GetAll();//_Context.Categories;
+            VM.categories = _unitofwork.Category.GetAll();//_Context.Categories;
             return View(VM);
         }
-        
+
         //[HttpPost]
         //[ValidateAntiForgeryToken]
         //public IActionResult Create(Category category)
@@ -40,16 +40,16 @@ namespace FirstApp.Controllers
         [HttpGet]
         public IActionResult CreateUpdate(int? ID)
         {
-            CategoryVM category=new CategoryVM();
-            if(ID == 0 || ID == null)
+            CategoryVM category = new CategoryVM();
+            if (ID == 0 || ID == null)
             {
                 return View(category);
             }
             else
             {
                 category.category = _unitofwork.Category.GetT(x => x.Id == ID);//_Context.Categories.Find(ID);
-                
-                if (ID > 0 && ID!=null)
+
+                if (ID > 0 && ID != null)
                 {
                     return View(category);
                 }
@@ -61,13 +61,22 @@ namespace FirstApp.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Category category)
+        public IActionResult CreateUpdate(CategoryVM Model)
         {
             if (ModelState.IsValid)
             {
-                _unitofwork.Category.Update(category);//_Context.Categories.Update(category);
+                if(Model.category.Id==0)
+                {
+                    _unitofwork.Category.Add(Model.category); //_Context.Categories.Add(category);
+                    TempData["success"] = "Category Created Done!";
+                }
+                else
+                {
+                    _unitofwork.Category.Update(Model.category);//_Context.Categories.Update(category);
+                    TempData["update"] = "Category Update Done!";
+                }
+
                 _unitofwork.Save();//_Context.SaveChanges();
-                TempData["success"] = "Category Updated Done!";
                 return RedirectToAction("Index");
             }
             return View();
@@ -91,7 +100,7 @@ namespace FirstApp.Controllers
         [HttpPost, ActionName("Delete")]
         public IActionResult DeleteData(int id)
         {
-            var cat= _unitofwork.Category.GetT(x => x.Id == id);//_Context.Categories.Find(id);
+            var cat = _unitofwork.Category.GetT(x => x.Id == id);//_Context.Categories.Find(id);
             if (cat == null)
             {
                 return NotFound();
