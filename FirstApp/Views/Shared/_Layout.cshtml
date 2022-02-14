@@ -22,12 +22,15 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link active" href="#">Home
+          <a class="nav-link active" asp-area="Clint" asp-controller="Home" asp-action="Index">Home
             <span class="visually-hidden">(current)</span>
           </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" asp-area="Admin" asp-controller="Cat" asp-action="Index">Catagory</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-area="Admin" asp-controller="Product" asp-action="Index">Product</a>
         </li>
       </ul>
     </div>
@@ -49,6 +52,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

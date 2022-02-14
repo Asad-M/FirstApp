@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace FirstApp.DataAccessLayer.Infrastructure.IRepository
 {
-    public interface IUnitOfWork
+    public interface IProductRepository:IRepository<Product>
     {
-        ICategoryRepository Category { get; }
-        IProductRepository Product { get; }
-        void Save();
+        void Update(Product product);
     }
 }

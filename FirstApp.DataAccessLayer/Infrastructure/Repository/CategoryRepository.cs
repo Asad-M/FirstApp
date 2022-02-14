@@ -19,7 +19,13 @@ namespace FirstApp.DataAccessLayer.Infrastructure.Repository
 
         public void Update(Category category)
         {
-            _context.Categories.Update(category);
+            var CategoryCheck = _context.Categories.FirstOrDefault(x => x.Id == category.Id);
+            if (CategoryCheck != null)
+            {
+                CategoryCheck.Name = category.Name;
+                CategoryCheck.DisplayOrder = category.DisplayOrder;
+            }
+            
         }
     }
 }

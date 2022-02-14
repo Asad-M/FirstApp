@@ -1,10 +1,4 @@
-﻿
-@*@if(TempData["success"]!=null)
-{
-    <h3>@TempData["success"]</h3>
-}
-*@
-<script src="~/lib/jquery/dist/jquery.js"></script>
+﻿<script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
   
@@ -12,20 +6,10 @@
 {
     
     <script>
-    toastr.success('@TempData["success"]')
-    
-}
-    
+    toastr.success('@TempData["success"]') 
     </script>
 }
-@if(TempData["update"]!=null)
-{
-    
-    <script>
-    toastr.success('@TempData["update"]')
-    
-    </script>
-}
+
 @if(TempData["error"]!=null)
 {
     

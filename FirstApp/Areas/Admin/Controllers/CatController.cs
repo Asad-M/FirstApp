@@ -73,7 +73,7 @@ namespace FirstApp.Controllers
                 else
                 {
                     _unitofwork.Category.Update(Model.category);//_Context.Categories.Update(category);
-                    TempData["update"] = "Category Update Done!";
+                    TempData["success"] = "Category Update Done!";
                 }
 
                 _unitofwork.Save();//_Context.SaveChanges();
