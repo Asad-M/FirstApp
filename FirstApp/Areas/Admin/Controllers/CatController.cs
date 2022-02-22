@@ -40,18 +40,20 @@ namespace FirstApp.Controllers
         [HttpGet]
         public IActionResult CreateUpdate(int? ID)
         {
-            CategoryVM category = new CategoryVM();
+            CategoryVM CategoryModel = new CategoryVM();
+
+
             if (ID == 0 || ID == null)
             {
-                return View(category);
+                return View(CategoryModel);
             }
             else
             {
-                category.category = _unitofwork.Category.GetT(x => x.Id == ID);//_Context.Categories.Find(ID);
+                CategoryModel.category = _unitofwork.Category.GetT(x => x.Id == ID);//_Context.Categories.Find(ID);
 
                 if (ID > 0 && ID != null)
                 {
-                    return View(category);
+                    return View(CategoryModel);
                 }
                 else
                 {

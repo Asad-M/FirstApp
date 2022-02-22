@@ -9,37 +9,44 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/FirstApp.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    @*DataTable*@
+    <link rel="stylesheet" href="//cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" />
+    
+    @*Teny Editor*@
+   <script src="https://cdn.tiny.cloud/1/vpbqwg1stesb00mvhkib4ldrr2bjkten9xaqd0rv7z99j9it/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-    <div class="collapse navbar-collapse" id="navbarColor01">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link active" asp-area="Clint" asp-controller="Home" asp-action="Index">Home
-            <span class="visually-hidden">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" asp-area="Admin" asp-controller="Cat" asp-action="Index">Catagory</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" asp-area="Admin" asp-controller="Product" asp-action="Index">Product</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav> 
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" asp-area="Clint" asp-controller="Home" asp-action="Index">
+                                Home
+                                <span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Admin" asp-controller="Cat" asp-action="Index">Catagory</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Admin" asp-controller="Product" asp-action="Index">Product</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
-            <partial name="_Notification"/>
+            <partial name="_Notification" />
             @RenderBody()
         </main>
     </div>
@@ -53,6 +60,13 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @*DataTable*@
+    <script src="//cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+    @*Toaster*@
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    
+    
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

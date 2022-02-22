@@ -6,7 +6,15 @@
 <form method="post">
     <div class="border p-3 mt-4">
         <div class="row pb-3">
-            <h2 class="text-primary">@((Model.category==null||Model.category.Id==0)?"Create":"Update") Category</h2>
+            @if(Model.category==null||Model.category.Id==0)
+            {
+                <h2 class="text-primary">Create Category</h2>
+            }
+            else
+            {
+                 <h2 class="text-primary">Update Category</h2>
+            }
+            @* <h2 class="text-primary">@((Model.category==null||Model.category.Id==0)?"Create":"Update") Category</h2>*@
         </div>
         <div class="row mb-3">
             <input  type="hidden" asp-for="category.Id">

@@ -19,6 +19,7 @@ namespace FirstApp.DataAccessLayer.Infrastructure.Repository
         public Repository(ApplicationDbContext context)
         {
             _context = context;
+           
             _dbSet = _context.Set<T>();
         }
 
@@ -37,14 +38,33 @@ namespace FirstApp.DataAccessLayer.Infrastructure.Repository
             _dbSet.RemoveRange(entity);
         }
 
-        public IEnumerable<T> GetAll()
+        public IEnumerable<T> GetAll(string? includePropties)
         {
-            return _dbSet.ToList();
+            IQueryable<T> query = _dbSet;
+            if (includePropties != null)
+            {
+                foreach (var item in includePropties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(item);
+                }
+            }
+            return query.ToList();
         }
 
-        public T GetT(Expression<Func<T, bool>> predicate)
+        public T GetT(Expression<Func<T, bool>> predicate, string? includePropties)
         {
-            return _dbSet.Where(predicate).FirstOrDefault();
+            IQueryable<T> query = _dbSet;
+            query = query.Where(predicate);
+            if(includePropties!=null)
+            {
+                foreach (var item in includePropties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(item);
+                }
+            }
+            return query.FirstOrDefault();
+
+            //return _dbSet.Where(predicate).FirstOrDefault();
 
         }
     }
