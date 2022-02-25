@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FirstApp", "FirstApp\FirstApp.csproj", "{316AC2C3-35E3-4775-9F4E-37F03C462DB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FirstApp.Web", "FirstApp\FirstApp.Web.csproj", "{316AC2C3-35E3-4775-9F4E-37F03C462DB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstApp.Models", "FirstApp.Models\FirstApp.Models.csproj", "{9008518C-9DBB-4F88-ADF9-5CD23FE096C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FirstApp.Models", "FirstApp.Models\FirstApp.Models.csproj", "{9008518C-9DBB-4F88-ADF9-5CD23FE096C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstApp.DataAccessLayer", "FirstApp.DataAccessLayer\FirstApp.DataAccessLayer.csproj", "{478C2C8A-7FD7-4252-8E76-2CB22D9CD302}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FirstApp.DataAccessLayer", "FirstApp.DataAccessLayer\FirstApp.DataAccessLayer.csproj", "{478C2C8A-7FD7-4252-8E76-2CB22D9CD302}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
